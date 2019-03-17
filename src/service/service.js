@@ -29,12 +29,17 @@ export class ApiService {
     return http.post(this.basicUrl, '/proxy/session/',data)
   }
   createOneTcp (data) {
+    data.LocalProt=parseInt(data.LocalProt)
+    data.RemotePort=parseInt(data.RemotePort)
     return http.post(this.basicUrl, '/proxy/tcp/',data)
   }
   createOneUdp (data) {
+    data.LocalProt=parseInt(data.LocalProt)
+    data.RemotePort=parseInt(data.RemotePort)
     return http.post(this.basicUrl, '/proxy/udp/',data)
   }
   createOneHttp (data) {
+    data.RemotePort=parseInt(data.RemotePort)
     return http.post(this.basicUrl, '/proxy/http/',data)
   }
   createOneSetting (data) {
