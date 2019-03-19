@@ -15,6 +15,9 @@ export class ApiService {
   fetchAllTcp () {
     return http.get(this.basicUrl, '/proxy/tcp/')
   }
+  fetchAllFtp () {
+    return http.get(this.basicUrl, '/proxy/ftp/')
+  }
   fetchAllUdp () {
     return http.get(this.basicUrl, '/proxy/udp/')
   }
@@ -32,6 +35,11 @@ export class ApiService {
     data.LocalProt=parseInt(data.LocalProt)
     data.RemotePort=parseInt(data.RemotePort)
     return http.post(this.basicUrl, '/proxy/tcp/',data)
+  }
+  createOneFtp (data) {
+    data.LocalProt=parseInt(data.LocalProt)
+    data.RemotePort=parseInt(data.RemotePort)
+    return http.post(this.basicUrl, '/proxy/ftp/',data)
   }
   createOneUdp (data) {
     data.LocalProt=parseInt(data.LocalProt)
@@ -55,6 +63,9 @@ export class ApiService {
   fetchOneTcp (id) {
     return http.get(this.basicUrl, '/proxy/tcp/'+id)
   }
+  fetchOneFtp (id) {
+    return http.get(this.basicUrl, '/proxy/ftp/'+id)
+  }
   fetchOneUdp (id) {
     return http.get(this.basicUrl, '/proxy/udp/'+id)
   }
@@ -70,6 +81,9 @@ export class ApiService {
   }
   deleteOneTcp (id) {
     return http.delete(this.basicUrl, '/proxy/tcp/'+id)
+  }
+  deleteOneFtp (id) {
+    return http.delete(this.basicUrl, '/proxy/ftp/'+id)
   }
   deleteOneUdp (id) {
     return http.delete(this.basicUrl, '/proxy/udp/'+id)

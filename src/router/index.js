@@ -36,6 +36,12 @@ export default new Router({
           meta: {title: 'Http'}
         },
         {
+          path: '/ftp',
+          name: 'ftp',
+          component: resolve => require(['@/components/ftp/ftp'], resolve),
+          meta: {title: 'Ftp'}
+        },
+        {
           path: '/setting',
           name: 'setting',
           component: resolve => require(['@/components/setting/setting'], resolve),
