@@ -28,7 +28,7 @@
 // dist/static/js/vendor.dd8d050711c7d84f2a68.js.map
 // DO NOT EDIT!
 
-package main
+package managerAssets
 
 import (
 	"github.com/elazarl/go-bindata-assetfs"

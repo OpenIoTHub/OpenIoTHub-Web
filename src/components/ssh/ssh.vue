@@ -53,7 +53,9 @@
       return {
         netList:[],
         dialogFormVisible:false,
-        form:{},
+        form:{
+          Port:22
+        },
         wsFactory: null,
         conn: null,
         formLabelWidth: '70px',
@@ -62,9 +64,6 @@
     created () {
       this.fetchAllNet()
       this.wsFactory = new wsFactory('ws://127.0.0.1:81')
-      // this.conn = this.wsFactory.create('XtLQwO6A5ZKNsyyAuVQHraOKy','127.0.0.1','22','root','root')
-      // socketURL = 'ws://127.0.0.1:81/proxy/ws/connect/ssh?runId=XtLQwO6A5ZKNsyyAuVQHraOKy&remoteIp=127.0.0.1&remotePort=22&userName=root&passWord=root';
-      // thsi.conn = new WebSocket(socketURL);
     },
     beforeDestroy () {
       // this.conn.close()

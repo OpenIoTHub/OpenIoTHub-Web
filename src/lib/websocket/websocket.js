@@ -16,3 +16,4 @@ export class WsConnectionFactory {
     return new WebSocket(this.baseUrl + '/proxy/ws/connect/ssh' + "?" + uri)
   }
 }
+

@@ -59,7 +59,9 @@
     watch: {
       conn: function () {
         this.clear()
+        console.log('conn变化')
         if(!this.term._initialized){
+          console.log('新创建')
           this.runRealTerminal()
         }
       }
