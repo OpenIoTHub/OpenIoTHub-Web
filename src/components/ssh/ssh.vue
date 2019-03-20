@@ -68,7 +68,7 @@ import { Message } from 'element-ui';
             { required: true, message: '请输入内网IP', trigger: 'blur' },
           ],
           Port: [
-            { required: true, message: '请输入内网端口', trigger: 'blur' },
+            {type: 'number', required: true, message: '请输入内网端口', trigger: 'blur' },
           ],
           userName: [
             { required: true, message: '请输入ssh用户名', trigger: 'blur' },
