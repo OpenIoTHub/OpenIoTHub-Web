@@ -28,17 +28,17 @@
     },
     created () {
       this.wsFactory = new wsFactory('ws://127.0.0.1:81')
-      this.conn = this.wsFactory.create('XtLQwO6A5ZKNsyyAuVQHraOKy','127.0.0.1','22','root','root')
+      // this.conn = this.wsFactory.create('XtLQwO6A5ZKNsyyAuVQHraOKy','127.0.0.1','22','root','root')
       // socketURL = 'ws://127.0.0.1:81/proxy/ws/connect/ssh?runId=XtLQwO6A5ZKNsyyAuVQHraOKy&remoteIp=127.0.0.1&remotePort=22&userName=root&passWord=root';
       // thsi.conn = new WebSocket(socketURL);
     },
     beforeDestroy () {
-      this.conn.close()
+      // this.conn.close()
     },
     methods: {
       //切换容器
-      createOne (val) {
-        this.conn.close()
+      createOne () {
+        // this.conn.close()
         this.conn = this.wsFactory.create('XtLQwO6A5ZKNsyyAuVQHraOKy','127.0.0.1','22','root','root')
       }
     }

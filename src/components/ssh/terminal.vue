@@ -35,21 +35,31 @@
       this.term = new Terminal()
       let terminalContainer = document.getElementById('terminal')
       this.term.open(terminalContainer)
-      attach.attach(this.term, this.conn)
+      if(this.conn){
+        this.conn.onopen = this.runRealTerminal
+      }
+      // attach.attach(this.term, this.conn)
       fit.fit(this.term)
     },
     beforeDestroy () {
-
+      this.conn.close()
     },
     methods: {
       clear () {
         this.term.clear()
       },
-      
+      // 
+    runRealTerminal() {
+      attach.attach(this.term, this.conn)
+      this.term._initialized = true;
+    },
     },
     watch: {
       conn: function () {
         this.clear()
+        if(!this.term._initialized){
+          this.runRealTerminal()
+        }
       }
     }
   }
