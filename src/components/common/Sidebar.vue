@@ -28,11 +28,11 @@
         <i class="el-icon-document"></i>
         <span slot="title">FTP代理</span>
       </el-menu-item>
-      <el-menu-item index="4" @click="forward('/ssh')">
+      <el-menu-item index="5" @click="forward('/ssh')">
         <i class="el-icon-document"></i>
         <span slot="title">SSH</span>
       </el-menu-item>
-      <el-menu-item index="5" @click="forward('/setting')">
+      <el-menu-item index="6" @click="forward('/setting')">
         <i class="el-icon-setting"></i>
         <span slot="title">设置</span>
       </el-menu-item>

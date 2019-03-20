@@ -13,7 +13,7 @@
   import * as search from 'xterm/lib/addons/search/search';
   import * as webLinks from 'xterm/lib/addons/webLinks/webLinks';
   import * as winptyCompat from 'xterm/lib/addons/winptyCompat/winptyCompat';
-
+  import 'xterm/dist/xterm.css'
   Terminal.applyAddon(fit);
   Terminal.applyAddon(attach)
   Terminal.applyAddon(fullscreen)
