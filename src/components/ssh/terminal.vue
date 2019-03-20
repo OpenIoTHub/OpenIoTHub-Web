@@ -42,7 +42,9 @@
       fit.fit(this.term)
     },
     beforeDestroy () {
-      this.conn.close()
+      if(this.conn){
+        this.conn.close()        
+      }
     },
     methods: {
       clear () {
