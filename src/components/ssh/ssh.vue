@@ -43,7 +43,6 @@
 <script>
   import terminal from './terminal'
   import {WsConnectionFactory as wsFactory} from '@/lib/websocket/websocket'
-import { Message } from 'element-ui';
 
   export default {
     name: "shell",

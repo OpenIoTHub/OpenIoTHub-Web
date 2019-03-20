@@ -52,18 +52,22 @@
       },
       // 
     runRealTerminal() {
-      attach.attach(this.term, this.conn)
-      this.term._initialized = true;
+      if(this.conn){
+        if(!this.term._initialized){
+          attach.attach(this.term, this.conn)
+          this.term._initialized = true;  
+        }else{
+          attach.detach(this.term)
+          this.clear()
+          attach.attach(this.term, this.conn)
+        }     
+      }
     },
     },
     watch: {
       conn: function () {
         this.clear()
-        console.log('conn变化')
-        if(!this.term._initialized){
-          console.log('新创建')
-          this.runRealTerminal()
-        }
+        this.runRealTerminal()
       }
     }
   }
