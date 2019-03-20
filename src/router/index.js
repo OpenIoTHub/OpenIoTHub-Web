@@ -42,6 +42,12 @@ export default new Router({
           meta: {title: 'Ftp'}
         },
         {
+          path: '/ssh',
+          name: 'ssh',
+          component: resolve => require(['@/components/ssh/ssh'], resolve),
+          meta: {title: 'SSH'}
+        },
+        {
           path: '/setting',
           name: 'setting',
           component: resolve => require(['@/components/setting/setting'], resolve),
