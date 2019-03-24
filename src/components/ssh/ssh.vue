@@ -80,7 +80,7 @@
     },
     created () {
       this.fetchAllNet()
-      this.wsFactory = new wsFactory('ws://127.0.0.1:81')
+      this.wsFactory = new wsFactory('ws://127.0.0.1:1081')
     },
     beforeDestroy () {
       // this.conn.close()
