@@ -80,15 +80,14 @@
     },
     created () {
       this.fetchAllNet()
-      this.wsFactory = new wsFactory('ws://127.0.0.1:1081')
+      this.wsFactory = new wsFactory(process.env.API_ROOT)
     },
     beforeDestroy () {
+      // 子组件有关闭
       // this.conn.close()
     },
     methods: {
-      //切换容器
       createOne () {
-        // this.conn.close()
         this.dialogFormVisible=true
       },
       openSSH(form){

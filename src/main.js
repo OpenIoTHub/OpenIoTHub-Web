@@ -6,7 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import {ApiService} from '@/service/service'
-Vue.prototype.$service = new ApiService('http://127.0.0.1:1081')
+Vue.prototype.$service = new ApiService(process.env.API_ROOT)
 Vue.config.productionTip = false
 
 Vue.use(ElementUI, {size: 'small'})
