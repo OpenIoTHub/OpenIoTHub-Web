@@ -8,7 +8,7 @@
         <terminal :conn="conn"></terminal>
       </el-card>
     </el-row>
-    <el-dialog title="添加一个内网" :visible.sync="dialogFormVisible" @close='closeForm'>
+    <el-dialog title="输入远程ssh信息" :visible.sync="dialogFormVisible" @close='closeForm'>
       <el-form :model="form" :rules="rules" ref="form">
         <el-form-item label="远程内网:" prop="RunId" required>
           <el-select filterable v-model="form.RunId" placeholder="请选择内网" style="width: 86%;">
