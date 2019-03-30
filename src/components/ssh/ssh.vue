@@ -80,7 +80,7 @@
     },
     created () {
       this.fetchAllNet()
-      this.wsFactory = new wsFactory('ws://'+window.location.host+':1081')
+      this.wsFactory = new wsFactory('ws://'+window.location.host.split(':')[0]+':1081')
     },
     beforeDestroy () {
       // 子组件有关闭
