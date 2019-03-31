@@ -5,7 +5,7 @@
     </el-row>
     <el-row>
       <el-card>
-        
+        使用noVNC前端库直接访问内网的VNC Server，支持的VNCServer包括：UltraVNC，x11vnc/libvncserver, QEMU, and MobileVNC等具体见https://github.com/novnc/noVNC
       </el-card>
     </el-row>
     <el-dialog title="输入远程VNC信息" :visible.sync="dialogFormVisible" @close='closeForm'>
