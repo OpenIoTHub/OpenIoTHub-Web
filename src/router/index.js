@@ -6,6 +6,12 @@ export default new Router({
   // mode: 'history',
   routes: [
     {
+      path: '/novnc',
+      name: 'novnc',
+      component: resolve => require(['@/components/vnc/novnc'], resolve),
+      meta: {title: 'VNCScr'}
+    },
+    {
       path: '/',
       component: resolve => require(['@/components/common/index'], resolve),
       redirect: 'session',
@@ -46,6 +52,12 @@ export default new Router({
           name: 'ssh',
           component: resolve => require(['@/components/ssh/ssh'], resolve),
           meta: {title: 'SSH'}
+        },
+        {
+          path: '/vnc',
+          name: 'vnc',
+          component: resolve => require(['@/components/vnc/vnc'], resolve),
+          meta: {title: 'VNC'}
         },
         {
           path: '/setting',

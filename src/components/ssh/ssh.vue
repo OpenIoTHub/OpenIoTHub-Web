@@ -93,7 +93,7 @@
       openSSH(form){
         this.$refs[form].validate((valid) => {
           if (valid) {
-            this.conn = this.wsFactory.create(this.form.RunId,this.form.IP,this.form.Port,this.form.userName,this.form.passWord)
+            this.conn = this.wsFactory.createSSH(this.form.RunId,this.form.IP,this.form.Port,this.form.userName,this.form.passWord)
             this.dialogFormVisible=false
           } else {
             this.$message.error('请输入必填参数！')
