@@ -1,2 +1,2 @@
 go-bindata-assetfs -pkg routers ./dist/...
-cp ./bindata.go C:\Users\Farry\go\src\git.iotserv.com\iotserv\iotserv\explorer\routers
+cp ./bindata.go C:\Users\Farry\go\src\git.iotserv.com\iotserv\explorer\routers

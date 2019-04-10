@@ -6,7 +6,16 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import {ApiService} from '@/service/service'
+import {WsUrlFactory} from '@/service/websocket'
 Vue.prototype.$service = new ApiService(process.env.API_ROOT)
+let protocol;
+if (window.location.protocol === "https:") {
+    protocol = 'wss';
+} else {
+    protocol = 'ws';
+}
+let wsBaseUrl = protocol + '://'+window.location.host.split(':')[0]
+Vue.prototype.$wsUrlFactory = new WsUrlFactory(wsBaseUrl)
 Vue.config.productionTip = false
 
 Vue.use(ElementUI, {size: 'small'})

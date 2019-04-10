@@ -1,8 +1,7 @@
-export class WsConnectionFactory {
+export class WsUrlFactory {
 
-  constructor (baseUrl, protocols) {
+  constructor (baseUrl) {
     this.baseUrl = baseUrl
-    this.protocols = protocols
   }
   
   createSSH (runId, remoteIp, remotePort, userName, passWord) {

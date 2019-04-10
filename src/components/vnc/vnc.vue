@@ -38,8 +38,6 @@
 </template>
 
 <script>
-  import {WsConnectionFactory as wsFactory} from '@/lib/websocket/websocket'
-
   export default {
     name: "vnc",
     computed: {
@@ -72,7 +70,6 @@
     },
     created () {
       this.fetchAllNet()
-      this.wsFactory = new wsFactory('ws://'+window.location.host.split(':')[0]+':1081')
     },
     beforeDestroy () {
 
@@ -84,7 +81,7 @@
       openVNC(form){
         this.$refs[form].validate((valid) => {
           if (valid) {
-            this.url = this.wsFactory.createWebsockifyUrl(this.form.RunId,this.form.IP,this.form.Port)
+            this.url = this.$wsUrlFactory.createWebsockifyUrl(this.form.RunId,this.form.IP,this.form.Port)
             this.dialogFormVisible=false
             this.$router.push({
               name: 'novnc',

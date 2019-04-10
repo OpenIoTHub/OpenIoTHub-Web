@@ -92,7 +92,7 @@ export default {
       (res)=>{
         console.log(res)
         if(res.data.code==0){
-          Message.success('添加Http成功！域名：'+res.data.Domain)
+          Message.success('添加Http成功！')
         }else{
           Message.error('添加失败！原因：'+res.data.message)
         }

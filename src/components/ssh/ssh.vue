@@ -42,8 +42,6 @@
 
 <script>
   import terminal from './terminal'
-  import {WsConnectionFactory as wsFactory} from '@/lib/websocket/websocket'
-
   export default {
     name: "shell",
     components: {terminal},
@@ -56,7 +54,6 @@
         form:{
           Port:22
         },
-        wsFactory: null,
         conn: null,
         formLabelWidth: '70px',
         rules: {
@@ -80,7 +77,6 @@
     },
     created () {
       this.fetchAllNet()
-      this.wsFactory = new wsFactory('ws://'+window.location.host.split(':')[0]+':1081')
     },
     beforeDestroy () {
       // 子组件有关闭
@@ -93,7 +89,7 @@
       openSSH(form){
         this.$refs[form].validate((valid) => {
           if (valid) {
-            this.conn = this.wsFactory.createSSH(this.form.RunId,this.form.IP,this.form.Port,this.form.userName,this.form.passWord)
+            this.conn = this.$wsUrlFactory.createSSH(this.form.RunId,this.form.IP,this.form.Port,this.form.userName,this.form.passWord)
             this.dialogFormVisible=false
           } else {
             this.$message.error('请输入必填参数！')
