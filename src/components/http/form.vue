@@ -26,7 +26,7 @@
         <el-form-item label="密码" :label-width="formLabelWidth">
           <el-input v-model="form.Password" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="内网https" prop="delivery">
+        <el-form-item label="内网已经是https" prop="delivery">
           <el-switch v-model="form.IfHttps"></el-switch>
         </el-form-item>
         <el-form-item label="备注" :label-width="formLabelWidth">
