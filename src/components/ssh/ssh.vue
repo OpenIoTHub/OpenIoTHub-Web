@@ -64,7 +64,7 @@
             { required: true, message: '请输入内网IP', trigger: 'blur' },
           ],
           Port: [
-            {type: 'number', required: true, message: '请输入内网端口', trigger: 'blur' },
+            { required: true, message: '请输入内网端口', trigger: 'blur' },
           ],
           userName: [
             { required: true, message: '请输入ssh用户名', trigger: 'blur' },

@@ -60,7 +60,7 @@
             { required: true, message: '请输入内网IP', trigger: 'blur' },
           ],
           Port: [
-            {type: 'number', required: true, message: '请输入内网端口', trigger: 'blur' },
+            {required: true, message: '请输入内网端口', trigger: 'blur' },
           ],
           PassWd: [
             { required: true, message: '请输入VNC密码', trigger: 'blur' },
