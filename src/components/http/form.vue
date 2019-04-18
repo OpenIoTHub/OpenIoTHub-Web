@@ -12,7 +12,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="域名" :label-width="formLabelWidth">
-          <el-input v-model="form.Domain" autocomplete="off"></el-input>
+          <el-input v-model="form.Domain" autocomplete="off" placeholder="eg：abc.domain.com"></el-input>
         </el-form-item>
         <el-form-item label="远程Ip" :label-width="formLabelWidth">
           <el-input v-model="form.RemoteIP" autocomplete="off"></el-input>
@@ -26,7 +26,7 @@
         <el-form-item label="密码" :label-width="formLabelWidth">
           <el-input v-model="form.Password" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="在内网已经是https" prop="delivery">
+        <el-form-item label="在内网已经是https://访问" prop="delivery">
           <el-switch v-model="form.IfHttps"></el-switch>
         </el-form-item>
         <el-form-item label="备注" :label-width="formLabelWidth">
@@ -88,6 +88,7 @@ export default {
     createByForm(){
       this.$emit('close')
       console.log(this.form)
+      this.form.Domain = this.form.Domain.replace(/https:\/\//g, "").replace(/http:\/\//g, "")
       this.$service.createOneHttp(this.form).then(
       (res)=>{
         console.log(res)
