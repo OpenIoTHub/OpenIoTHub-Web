@@ -22,10 +22,10 @@
       :visible.sync="dialogVisible"
       width="30%">
         <el-upload
-          class="upload-demo"
           drag
           auto-upload
           action="/proxy/op/useUploadConfig"
+          :on-success="successUp"
           multiple>
           <i class="el-icon-upload"></i>
           <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -55,11 +55,28 @@ export default {
   methods: {
     saveConfig (){
       console.log("保存")
-      this
+      this.$service.saveConfig().then(
+        (res) =>{
+          console.log(res)
+          if (res.data.code == 0){
+            this.$message.success('保存成功！', res.message)
+          }else{
+            this.$message.error('保存失败！', res.message)
+          }
+        }
+      )
     },
     uploadConfig (){
       console.log("上传")
       this.dialogVisible = true
+    },
+    successUp(response, file, fileList){
+      console.log(response)
+      if (response.code == 0){
+        this.$message.success('导入成功！')
+      }else{
+        this.$message.error('导入失败！：' + response.message)
+      }
     }
   }
 }
