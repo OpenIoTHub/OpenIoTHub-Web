@@ -59,9 +59,9 @@ export default {
         (res) =>{
           console.log(res)
           if (res.data.code == 0){
-            this.$message.success('保存成功！', res.message)
+            this.$message.success('保存成功！'+ res.data.message)
           }else{
-            this.$message.error('保存失败！', res.message)
+            this.$message.error('保存失败！' + res.data.message)
           }
         }
       )
