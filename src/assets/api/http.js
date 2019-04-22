@@ -71,5 +71,5 @@ export default {
         // return res
       }
     )
-  }
+  },
 }

@@ -98,4 +98,8 @@ export class ApiService {
     return http.delete(this.basicUrl, '/proxy/vpn/')
   }
   //:TODO websocket 连接
+  // 配置文件的保存和上传
+  saveConfig(){
+    return http.get(this.basicUrl, '/proxy/op/saveConfigFile')
+  }
 }
