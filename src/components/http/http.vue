@@ -57,6 +57,21 @@
               </template>
             </el-table-column>
             <el-table-column
+              label="可选操作"
+              width="150">
+              <template slot-scope="scope">
+                <el-dropdown @command="handleCommand">
+                  <el-button type="primary">
+                    选择<i class="el-icon-arrow-down el-icon--right"></i>
+                  </el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item :command="{type:'http',scope:scope}">Http打开</el-dropdown-item>
+                    <el-dropdown-item :command="{type:'https',scope:scope}">Https打开</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </template>
+            </el-table-column>
+            <el-table-column
               prop="Description"
               label="描述"
               width="200">
@@ -145,6 +160,14 @@ export default {
         console.log('delete:',val.Domain)
         this.$service.deleteOneHttp (val.Domain)
       })
+    },
+    handleCommand(data) {
+      console.log(data)
+      if (data.type == "http"){
+        window.open("http://" + data.scope.row.Domain)
+      } else if (data.type == "https"){
+        window.open("https://" + data.scope.row.Domain)
+      }
     }
   }
 }

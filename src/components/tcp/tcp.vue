@@ -20,12 +20,12 @@
             </el-table-column>
             <el-table-column
               label="内网Id"
-              width="210">
+              width="150">
               <template slot-scope="scope">{{ scope.row.RunId }}</template>
             </el-table-column>
             <el-table-column
               label="本地Ip"
-              width="120">
+              width="90">
               <template slot-scope="scope">{{ scope.row.LocalIP }}</template>
             </el-table-column>
             <el-table-column
@@ -35,7 +35,7 @@
             </el-table-column>
             <el-table-column
               label="远程Ip"
-              width="120">
+              width="90">
               <template slot-scope="scope">{{ scope.row.RemoteIP }}</template>
             </el-table-column>
             <el-table-column
@@ -54,7 +54,23 @@
             <el-table-column
               prop="Description"
               label="描述"
-              width="200">
+              width="150">
+            </el-table-column>
+            <el-table-column
+              label="可选操作"
+              width="150">
+              <template slot-scope="scope">
+                <el-dropdown @command="handleCommand">
+                  <el-button type="primary">
+                    选择<i class="el-icon-arrow-down el-icon--right"></i>
+                  </el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item :command="{type:'http',scope:scope}">Http方式打开</el-dropdown-item>
+                    <el-dropdown-item :command="{type:'rdpLink',scope:scope}">RDP桌面打开</el-dropdown-item>
+                    <el-dropdown-item :command="{type:'rdpFile',scope:scope}">RDP文件下载</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </template>
             </el-table-column>
           </el-table>
         </template>
@@ -140,6 +156,23 @@ export default {
         console.log('delete:',val.LocalProt)
         this.$service.deleteOneTcp (val.LocalProt)
       })
+    },
+    handleCommand(data) {
+      console.log(data)
+      if (data.type == "http"){
+        window.open("http://" + window.location.host.split(':')[0] + ":" + data.scope.row.LocalProt)
+      }else if (data.type == "rdpLink") {
+        window.location.href = "rdp://full%20address=s:" + window.location.host.split(':')[0] + ":" + data.scope.row.LocalProt + "&audiomode=i:2&disable%20themes=i:1"
+      }else if (data.type == "rdpFile"){
+        var blob = new Blob(["full address:s:" + window.location.host.split(':')[0] + ":" + data.scope.row.LocalProt],{type:"text/plain"});
+        var fileUrl = URL.createObjectURL(blob)
+        console.log(fileUrl)
+        var aTag = document.createElement('a');
+        aTag.download = "Default.rdp";
+        aTag.href = fileUrl
+        aTag.click();
+        URL.revokeObjectURL(blob);
+      }
     }
   }
 }

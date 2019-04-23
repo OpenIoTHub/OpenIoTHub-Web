@@ -52,6 +52,20 @@
               </template>
             </el-table-column>
             <el-table-column
+              label="可选操作"
+              width="150">
+              <template slot-scope="scope">
+                <el-dropdown @command="handleCommand">
+                  <el-button type="primary">
+                    选择<i class="el-icon-arrow-down el-icon--right"></i>
+                  </el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item :command="{type:'ftp',scope:scope}">浏览器打开</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </template>
+            </el-table-column>
+            <el-table-column
               prop="Description"
               label="描述"
               width="200">
@@ -135,6 +149,12 @@ export default {
         console.log('delete:',val.LocalProt)
         this.$service.deleteOneFtp (val.LocalProt)
       })
+    },
+    handleCommand(data) {
+      console.log(data)
+      if (data.type == "ftp"){
+        window.open("ftp://" + window.location.host.split(':')[0] + ":" + data.scope.row.LocalProt)
+      }
     }
   }
 }
