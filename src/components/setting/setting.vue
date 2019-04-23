@@ -9,9 +9,15 @@
           <div slot="header" class="clearfix">
             <span>配置文件</span>
           </div>
-          <el-button type="primary"><a href="/proxy/op/getCurrentConfig.yaml">下载</a></el-button>
-          <el-button type="primary" @click="saveConfig()">保存</el-button>
-          <el-button type="primary" @click="uploadConfig()">上传</el-button>
+          <el-tooltip class="item" effect="dark" content="从浏览器下载当前配置(可用于下次导入)" placement="top">
+            <el-button type="primary"><a href="/proxy/op/getCurrentConfig.yaml">下载</a></el-button>
+          </el-tooltip>
+          <el-tooltip class="item" effect="dark" content="直接将配置保存到explorer服务器(可用于下次导入)" placement="top">
+            <el-button type="primary" @click="saveConfig()">保存</el-button>
+          </el-tooltip>
+          <el-tooltip class="item" effect="dark" content="从网页导入配置添加内网和穿透" placement="top">
+            <el-button type="primary" @click="uploadConfig()">上传</el-button>
+          </el-tooltip>
         </el-card>
       </el-col>
       <el-col :span="8">&nbsp;</el-col>
