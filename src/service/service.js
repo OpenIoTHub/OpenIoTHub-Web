@@ -102,4 +102,7 @@ export class ApiService {
   saveConfig(){
     return http.get(this.basicUrl, '/proxy/op/saveConfigFile')
   }
+  createSettingFromList (data) {
+    return http.post(this.basicUrl, '/proxy/settingList/',data)
+  }
 }

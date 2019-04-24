@@ -7,7 +7,9 @@
       <el-col :span="8">
         <config></config>
       </el-col>
-      <el-col :span="8">&nbsp;</el-col>
+      <el-col :span="8">
+        <explorerUserPass></explorerUserPass>
+      </el-col>
       <el-col :span="8">&nbsp;</el-col>
     </el-row>
   </div>
@@ -16,6 +18,7 @@
 <script>
 import { Message } from 'element-ui';
 import config from './config'
+import explorerUserPass from './explorerUserPass'
 export default {
   data () {
     return {
@@ -23,7 +26,8 @@ export default {
     }
   },
   components: {
-    config
+    config,
+    explorerUserPass
   },
   created (){
 
