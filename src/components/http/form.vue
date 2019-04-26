@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="添加一个内网" :visible.sync="dialogFormVisible" @close='closeForm'>
+    <el-dialog title="添加一个HTTP代理" :visible.sync="dialogFormVisible" @close='closeForm'>
       <el-form :model="form">
         <el-form-item label="远程内网:">
           <el-select filterable v-model="form.RunId" placeholder="请选择内网" style="width: 86%;">
