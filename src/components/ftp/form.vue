@@ -11,9 +11,10 @@
               :value="item.RunId" />
           </el-select>
         </el-form-item>
-        <el-form-item label="本地Ip" :label-width="formLabelWidth">
+        <el-form-item label="监听Ip" :label-width="formLabelWidth">
           <el-input v-model="form.LocalIP" autocomplete="off"></el-input>
         </el-form-item>
+
         <el-form-item label="本地端口" :label-width="formLabelWidth">
           <el-input v-model="form.LocalProt" autocomplete="off"></el-input>
         </el-form-item>
@@ -22,6 +23,9 @@
         </el-form-item>
         <el-form-item label="远程端口" :label-width="formLabelWidth">
           <el-input v-model="form.RemotePort" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="Ip重写" :label-width="formLabelWidth">
+          <el-input v-model="form.IPRewriteSet" autocomplete="off" placeholder="██慎填，慎填██，强行设置ftp客户端需要连接的本服务器的ip地址(用于服务器没有直接绑定公网ip的情况)"></el-input>
         </el-form-item>
         <el-form-item label="备注" :label-width="formLabelWidth">
           <el-input v-model="form.Description" autocomplete="off"></el-input>
@@ -52,6 +56,7 @@ export default {
       form: {
         Description: "",
         LocalIP: "0.0.0.0",
+        IPRewriteSet: "",
         LocalProt: 0,
         RemoteIP: "127.0.0.1",
         RemotePort: 21,
