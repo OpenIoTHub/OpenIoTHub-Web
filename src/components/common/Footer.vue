@@ -1,6 +1,6 @@
 <template>
   <div class="footer footer-com">
-    <span>版权所有 @ nat-cloud.com</span>
+    <span>版权所有</span>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="logo">
-      <h1>NAT Manager</h1>
+      <h1>p2p network</h1>
     </div>
   </div>
 </template>
